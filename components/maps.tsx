@@ -59,7 +59,7 @@ export default function MapLeaflet() {
 
         // Add markers for ships
         ships.forEach((ship) => {
-          const marker = L.marker([ship.lat, ship.lng], { icon: shipIcon })
+          L.marker([ship.lat, ship.lng], { icon: shipIcon })
             .addTo(map)
             .bindPopup(`
               <div class="p-2">
@@ -82,7 +82,7 @@ export default function MapLeaflet() {
             `)
 
           // Add a line showing the ship's heading
-          const headingLine = L.polyline(
+           L.polyline(
             [
               [ship.lat, ship.lng],
               [
