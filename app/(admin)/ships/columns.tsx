@@ -1,0 +1,64 @@
+"use client";
+
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ColumnDef } from "@tanstack/react-table";
+import { Check, CircleX, Pencil, Trash } from "lucide-react";
+
+type Status = "Aktif" | "Tidak Aktif";
+
+export type Ship = {
+    code: string;
+    name: string;
+    status: Status;
+    created_at: string;
+};
+
+export const columns: ColumnDef<Ship>[] = [
+    {
+        accessorKey: "code",
+        header: "Kode",
+    },
+    {
+        accessorKey: "name",
+        header: "Nama Kapal",
+    },
+    {
+        accessorKey: "status",
+        header: "Status",
+        cell: ({ row }) => {
+            const value: Status = row.getValue("status");
+            return (
+                <Badge variant="outline">
+                    {value == "Aktif" ? (
+                        <Check className="text-green-400" />
+                    ) : (
+                        <CircleX className="text-red-400" />
+                    )}
+                    {value}
+                </Badge>
+            );
+        },
+    },
+    {
+        accessorKey: "created_at",
+        header: "Tanggal Dibuat",
+    },
+    {
+        id: "actiions",
+        cell: () => {
+            return (
+                <div className="flex gap-2">
+                    <Button>
+                        <Pencil />
+                        Edit
+                    </Button>
+                    <Button variant="destructive">
+                        <Trash />
+                        Hapus
+                    </Button>
+                </div>
+            );
+        },
+    },
+];
