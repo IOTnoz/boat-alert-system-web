@@ -34,17 +34,17 @@ const data = {
     navMain: [
         {
             title: "Dashboard",
-            url: "#",
+            url: "/dashboard",
             icon: IconDashboard,
         },
         {
             title: "Data Kapal",
-            url: "/kapal",
+            url: "/ships",
             icon: IconListDetails,
         },
         {
-            title: "Alert",
-            url: "#",
+            title: "Data Peringatan",
+            url: "/alert",
             icon: IconChartBar,
         },
     ],
