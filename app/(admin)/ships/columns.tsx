@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ColumnDef } from "@tanstack/react-table";
-import { Check, CircleX, Pencil, Trash } from "lucide-react";
+import { ArrowDown, Check, CircleX, Pencil, Trash } from "lucide-react";
 
 type Status = "Aktif" | "Tidak Aktif";
 
@@ -42,7 +42,20 @@ export const columns: ColumnDef<Ship>[] = [
     },
     {
         accessorKey: "created_at",
-        header: "Tanggal Dibuat",
+        header: ({ column }) => {
+            return (
+                <Button
+                    variant="ghost"
+                    className="hover:cursor-pointer"
+                    onClick={() =>
+                        column.toggleSorting(column.getIsSorted() == "asc")
+                    }
+                >
+                    Tanggal Dibuat
+                    <ArrowDown />
+                </Button>
+            );
+        },
     },
     {
         id: "actiions",

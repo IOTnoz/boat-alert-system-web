@@ -10,6 +10,18 @@ const ships: Ship[] = [
         status: "Tidak Aktif",
         created_at: "23 April 2025",
     },
+    {
+        code: "IOTNOZ-SHIP-09",
+        name: "Kapal IOTNOZ",
+        status: "Tidak Aktif",
+        created_at: "24 April 2025",
+    },
+    {
+        code: "IOTNOZ-SHIP-09",
+        name: "Kapal IOTNOZ",
+        status: "Tidak Aktif",
+        created_at: "23 April 2025",
+    },
 ];
 
 export default function ShipPage() {
