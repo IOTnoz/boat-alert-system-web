@@ -14,6 +14,27 @@ export default function ShipPage() {
             lat: "-10.0009",
             lon: "5.00009",
             ship_tilt: "45 derajat",
+            status: "Darurat",
+        },
+        {
+            code: "IOTNOZ09",
+            name: "Kapal IOTNOZ",
+            date: "23 Mei 2025",
+            time: "14:00 WITA",
+            lat: "-10.0009",
+            lon: "5.00009",
+            ship_tilt: "45 derajat",
+            status: "Darurat",
+        },
+        {
+            code: "IOTNOZ09",
+            name: "Kapal IOTNOZ",
+            date: "23 Mei 2025",
+            time: "14:00 WITA",
+            lat: "-10.0009",
+            lon: "5.00009",
+            ship_tilt: "45 derajat",
+            status: "Darurat",
         },
     ];
 
