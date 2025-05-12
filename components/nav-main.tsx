@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/sidebar";
 import { Icon } from "@tabler/icons-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function NavMain({
     items,
@@ -19,15 +20,19 @@ export function NavMain({
         icon?: Icon;
     }[];
 }) {
+    const path = usePathname();
     return (
         <SidebarGroup>
             <SidebarGroupContent className="flex flex-col gap-2">
                 <SidebarMenu>
                     {items.map((item) => (
                         <SidebarMenuItem key={item.title}>
-                            <SidebarMenuButton tooltip={item.title}>
-                                {item.icon && <item.icon />}
+                            <SidebarMenuButton
+                                asChild
+                                isActive={path == item.url}
+                            >
                                 <Link href={item.url}>
+                                    {item.icon && <item.icon />}
                                     <span>{item.title}</span>
                                 </Link>
                             </SidebarMenuButton>
