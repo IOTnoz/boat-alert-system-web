@@ -1,8 +1,8 @@
 import { DataTable } from "@/components/ui/data-table";
 import { columns, DataAlertType } from "./columns";
-import TimerClock from "@/components/clock";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle } from "lucide-react";
+import TimerClock from "@/components/features/clock/clock";
 
 export default function ShipPage() {
     const dataAlert: DataAlertType[] = [
