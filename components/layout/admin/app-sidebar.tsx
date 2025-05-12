@@ -2,19 +2,11 @@
 
 import * as React from "react";
 import {
-    IconCamera,
     IconChartBar,
     IconDashboard,
-    IconFileAi,
-    IconFileDescription,
-    IconHelp,
-    IconInnerShadowTop,
     IconListDetails,
 } from "@tabler/icons-react";
 
-import { NavMain } from "@/components/nav-main";
-import { NavSecondary } from "@/components/nav-secondary";
-import { NavUser } from "@/components/nav-user";
 import {
     Sidebar,
     SidebarContent,
@@ -24,6 +16,8 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { NavMain } from "./nav-main";
+import { NavUser } from "./nav-user";
 
 const data = {
     user: {
@@ -46,13 +40,6 @@ const data = {
             title: "Data Peringatan",
             url: "/alert",
             icon: IconChartBar,
-        },
-    ],
-    navSecondary: [
-        {
-            title: "Get Help",
-            url: "#",
-            icon: IconHelp,
         },
     ],
 };
@@ -79,7 +66,6 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             </SidebarHeader>
             <SidebarContent>
                 <NavMain items={data.navMain} />
-                <NavSecondary items={data.navSecondary} className="mt-auto" />
             </SidebarContent>
             <SidebarFooter>
                 <NavUser user={data.user} />

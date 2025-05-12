@@ -1,5 +1,5 @@
-import { AppSidebar } from "@/components/app-sidebar";
-import { SiteHeader } from "@/components/site-header";
+import { AppSidebar } from "@/components/layout/admin/app-sidebar";
+import { SiteHeader } from "@/components/layout/admin/site-header";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import React from "react";
 
