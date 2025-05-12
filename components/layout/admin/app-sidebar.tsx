@@ -1,11 +1,6 @@
 "use client";
 
 import * as React from "react";
-import {
-    IconChartBar,
-    IconDashboard,
-    IconListDetails,
-} from "@tabler/icons-react";
 
 import {
     Sidebar,
@@ -18,33 +13,15 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
+import { navList } from "@/lib/sidebar";
 
-const data = {
-    user: {
+export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+    const user = {
         name: "Perdi",
         email: "perdidev@example.com",
         avatar: "/avatars/shadcn.jpg",
-    },
-    navMain: [
-        {
-            title: "Dashboard",
-            url: "/dashboard",
-            icon: IconDashboard,
-        },
-        {
-            title: "Data Kapal",
-            url: "/ships",
-            icon: IconListDetails,
-        },
-        {
-            title: "Data Peringatan",
-            url: "/alert",
-            icon: IconChartBar,
-        },
-    ],
-};
+    };
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     return (
         <Sidebar collapsible="offcanvas" {...props}>
             <SidebarHeader>
@@ -65,10 +42,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 </SidebarMenu>
             </SidebarHeader>
             <SidebarContent>
-                <NavMain items={data.navMain} />
+                <NavMain items={navList} />
             </SidebarContent>
             <SidebarFooter>
-                <NavUser user={data.user} />
+                <NavUser user={user} />
             </SidebarFooter>
         </Sidebar>
     );
