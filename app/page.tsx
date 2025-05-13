@@ -10,11 +10,11 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import TeamCards from "@/components/team-card";
-import Footer from "@/components/layout/footer";
-import BigTitle from "@/components/big-title";
-import MapLeaflet from "@/components/maps";
 import Link from "next/link";
+import MapLeaflet from "@/components/features/maps/maps";
+import BigTitle from "@/components/layout/root/big-title";
+import TeamCards from "@/components/layout/root/team-card";
+import Footer from "@/components/layout/root/footer";
 
 export default function Home() {
     return (
