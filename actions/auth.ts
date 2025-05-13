@@ -1,8 +1,8 @@
 "use server";
 import { FormState, LoginFormSchema } from "@/lib/definitions";
-import { app } from "@/lib/firebase";
+import { auth } from "@/lib/firebase";
 import { createSession } from "@/lib/session";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { redirect } from "next/navigation";
 
 export async function login(state: FormState, formData: FormData) {
@@ -18,8 +18,6 @@ export async function login(state: FormState, formData: FormData) {
     }
 
     const { email, password } = validatedFields.data;
-
-    const auth = getAuth(app);
 
     signInWithEmailAndPassword(auth, email, password)
         .then(async (userCredential) => {

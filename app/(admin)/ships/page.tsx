@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
+import AddShip from "@/components/features/ship/add-ship";
 import { columns, Ship } from "./columns";
-import { PlusIcon } from "lucide-react";
 import { DataTable } from "@/components/ui/data-table";
 
 const ships: Ship[] = [
@@ -28,10 +27,7 @@ export default function ShipPage() {
     return (
         <div className="container mx-auto py-4 px-6">
             <div className="flex mb-4 justify-end">
-                <Button variant="outline" size="sm">
-                    <PlusIcon />
-                    <span className="hidden lg:inline">Tambah Kapal</span>
-                </Button>
+                <AddShip />
             </div>
             <DataTable columns={columns} data={ships} />
         </div>

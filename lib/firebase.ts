@@ -5,6 +5,8 @@ import { getDatabase } from "firebase/database";
 const firebaseConfig = {
     apiKey: "AIzaSyAmLINKTlVAki7GVprNiVF-m30yvKbc9jY",
     authDomain: "boat-safe-system.firebaseapp.com",
+    databaseURL:
+        "https://boat-safe-system-default-rtdb.asia-southeast1.firebasedatabase.app",
     projectId: "boat-safe-system",
     storageBucket: "boat-safe-system.firebasestorage.app",
     messagingSenderId: "459240538181",
