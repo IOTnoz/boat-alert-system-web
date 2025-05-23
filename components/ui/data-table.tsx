@@ -94,7 +94,7 @@ export function DataTable<TData, TValue>({
                         ) : (
                             <TableRow>
                                 <TableCell
-                                    colSpan={length}
+                                    colSpan={columns.length}
                                     className="h-24 text-center"
                                 >
                                     Tidak ada data.
