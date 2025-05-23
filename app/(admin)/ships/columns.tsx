@@ -2,17 +2,9 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Ship } from "@/types/ship";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowDown, Check, CircleX, Pencil, Trash } from "lucide-react";
-
-type Status = "Aktif" | "Tidak Aktif";
-
-export type Ship = {
-    code: string;
-    name: string;
-    status: Status;
-    created_at: string;
-};
 
 export const columns: ColumnDef<Ship>[] = [
     {
@@ -27,7 +19,7 @@ export const columns: ColumnDef<Ship>[] = [
         accessorKey: "status",
         header: "Status",
         cell: ({ row }) => {
-            const value: Status = row.getValue("status");
+            const value: "Aktif" | "Tidak Aktif" = row.getValue("status");
             return (
                 <Badge variant="outline">
                     {value == "Aktif" ? (
@@ -41,7 +33,7 @@ export const columns: ColumnDef<Ship>[] = [
         },
     },
     {
-        accessorKey: "created_at",
+        accessorKey: "createdAt",
         header: ({ column }) => {
             return (
                 <Button

@@ -1,27 +1,20 @@
 "use server";
 
-import { addShip } from "@/firebase/ship";
-import { z } from "zod";
-
-type ShipFormState =
-    | {
-          errors?: {
-              code?: string[];
-              name?: string[];
-          };
-          message?: string;
-      }
-    | undefined;
-
-const ShipFormSchema = z.object({
-    code: z.string().trim(),
-    name: z.string().trim(),
-});
+import { database } from "@/lib/firebase";
+import { ShipFormState, ShipSchema } from "@/types/ship";
+import { ref, set } from "firebase/database";
 
 export async function createShip(state: ShipFormState, formData: FormData) {
-    const validatedFields = ShipFormSchema.safeParse({
-        code: formData.get("code"),
-        name: formData.get("name"),
+    const code = formData.get("code");
+    const name = formData.get("name");
+    const status = "Aktif";
+    const createdAt = "12 mei 2025";
+
+    const validatedFields = ShipSchema.safeParse({
+        code,
+        name,
+        status,
+        createdAt,
     });
 
     if (!validatedFields.success) {
@@ -30,8 +23,5 @@ export async function createShip(state: ShipFormState, formData: FormData) {
         };
     }
 
-    const { code, name } = validatedFields.data;
-    console.log(code, name);
-
-    addShip(code, name);
+    await set(ref(database, "ships/" + code), validatedFields.data);
 }
