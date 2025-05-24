@@ -1,11 +1,11 @@
 "use server";
 
-import { FormState } from "@/lib/definitions";
 import { database } from "@/lib/firebase";
+import { FormStateType } from "@/types";
 import { ShipSchema } from "@/types/ship";
 import { ref, set } from "firebase/database";
 
-export async function createShip(state: FormState, formData: FormData) {
+export async function createShip(state: FormStateType, formData: FormData) {
     const code = formData.get("code");
     const name = formData.get("name");
     const status = "Aktif";
