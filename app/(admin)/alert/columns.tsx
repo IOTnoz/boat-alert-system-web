@@ -2,29 +2,17 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { AlertType } from "@/types/alert";
 import { ColumnDef } from "@tanstack/react-table";
 import { Search } from "lucide-react";
 
-export type StatusShipTilt = "Peringatan" | "Darurat";
-
-export type DataAlertType = {
-    code: string;
-    name: string;
-    date: string;
-    time: string;
-    lat: string;
-    lon: string;
-    ship_tilt: string;
-    status: StatusShipTilt;
-};
-
-export const columns: ColumnDef<DataAlertType>[] = [
+export const columns: ColumnDef<AlertType>[] = [
     {
         accessorKey: "code",
         header: "Kode",
     },
     {
-        accessorKey: "name",
+        accessorKey: "ship.name",
         header: "Nama",
     },
     {
@@ -44,14 +32,18 @@ export const columns: ColumnDef<DataAlertType>[] = [
         header: "longitute",
     },
     {
-        accessorKey: "ship_tilt",
-        header: "Kemiringan",
+        accessorKey: "pitch",
+        header: "Kemiringan Pitch",
+    },
+    {
+        accessorKey: "roll",
+        header: "Kemiringan Roll",
     },
     {
         accessorKey: "status",
         header: "Status",
         cell: ({ row }) => {
-            const status: StatusShipTilt = row.getValue("status");
+            const status: "Peringatan" | "Darurat" = row.getValue("status");
 
             return <Badge>{status}</Badge>;
         },

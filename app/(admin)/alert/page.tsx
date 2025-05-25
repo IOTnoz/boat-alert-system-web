@@ -1,42 +1,40 @@
+"use client";
+
 import { DataTable } from "@/components/ui/data-table";
-import { columns, DataAlertType } from "./columns";
+import { columns } from "./columns";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CheckCircle } from "lucide-react";
 import TimerClock from "@/components/features/clock/clock";
+import { AlertType } from "@/types/alert";
+import { child, get, onValue, ref } from "firebase/database";
+import { database } from "@/lib/firebase";
+import { useEffect, useState } from "react";
+import { Ship } from "@/types/ship";
 
 export default function ShipPage() {
-    const dataAlert: DataAlertType[] = [
-        {
-            code: "IOTNOZ09",
-            name: "Kapal IOTNOZ",
-            date: "23 Mei 2025",
-            time: "14:00 WITA",
-            lat: "-10.0009",
-            lon: "5.00009",
-            ship_tilt: "45 derajat",
-            status: "Darurat",
-        },
-        {
-            code: "IOTNOZ09",
-            name: "Kapal IOTNOZ",
-            date: "23 Mei 2025",
-            time: "14:00 WITA",
-            lat: "-10.0009",
-            lon: "5.00009",
-            ship_tilt: "45 derajat",
-            status: "Darurat",
-        },
-        {
-            code: "IOTNOZ09",
-            name: "Kapal IOTNOZ",
-            date: "23 Mei 2025",
-            time: "14:00 WITA",
-            lat: "-10.0009",
-            lon: "5.00009",
-            ship_tilt: "45 derajat",
-            status: "Darurat",
-        },
-    ];
+    const [dataAlert, setDataAlert] = useState<AlertType[]>([]);
+
+    useEffect(() => {
+        const shipsRef = child(ref(database), "ships");
+        const alertRef = ref(database, "alerts");
+
+        const unsubscribe = onValue(alertRef, async (snapshot) => {
+            const alertSnapshot: Record<string, AlertType> =
+                snapshot.val() || {};
+
+            const shipSnapshot = await get(shipsRef);
+            const dataShip: Record<string, Ship> = shipSnapshot.val() || {};
+
+            const data = Object.entries(alertSnapshot).map(([id, alert]) => ({
+                ...alert,
+                ship: dataShip[id],
+            }));
+
+            setDataAlert(data);
+        });
+
+        return () => unsubscribe();
+    }, []);
 
     return (
         <div className="container mx-auto py-2 px-6">
