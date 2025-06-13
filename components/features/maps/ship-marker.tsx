@@ -37,6 +37,15 @@ export default function ShipMarker({ data }: { data: ShipWithLatestLog }) {
                 <Popup>
                     <strong>{data.name}</strong> <br />
                     Status: {data.latest_log?.flag ? "Peringatan" : "Normal"}
+                    <br />
+                    Kemiringan Depan: {Math.floor(
+                        data.latest_log?.pitch ?? 0,
+                    )}{" "}
+                    <br />
+                    Kemiringan Samping: {Math.floor(
+                        data.latest_log?.roll ?? 0,
+                    )}{" "}
+                    <br />
                 </Popup>
             </LeafletTrackingMarker>
             <Polyline positions={[prev, [lat, lon]]} />
