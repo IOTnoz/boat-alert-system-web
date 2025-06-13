@@ -14,6 +14,7 @@ import {
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
 import { navList } from "@/lib/sidebar";
+import Link from "next/link";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const user = {
@@ -31,12 +32,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                             asChild
                             className="data-[slot=sidebar-menu-button]:!p-1.5"
                         >
-                            <a href="#">
-                                {/* <IconInnerShadowTop className="!size-5" /> */}
+                            <Link href="/">
                                 <span className="text-base font-semibold">
                                     Safe Boat System
                                 </span>
-                            </a>
+                            </Link>
+                            {/* <a href="#">
+                                <span className="text-base font-semibold">
+                                    Safe Boat System
+                                </span>
+                            </a> */}
                         </SidebarMenuButton>
                     </SidebarMenuItem>
                 </SidebarMenu>
