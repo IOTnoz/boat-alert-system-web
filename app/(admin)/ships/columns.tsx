@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Ship } from "@/types/ship";
+import { Ship } from "@/types";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowDown, Check, CircleX, Pencil, Trash } from "lucide-react";
 
@@ -33,7 +33,7 @@ export const columns: ColumnDef<Ship>[] = [
         },
     },
     {
-        accessorKey: "createdAt",
+        accessorKey: "created_at",
         header: ({ column }) => {
             return (
                 <Button
