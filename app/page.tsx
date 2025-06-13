@@ -8,7 +8,6 @@ import TeamCards from "@/components/layout/root/team-card";
 import Footer from "@/components/layout/root/footer";
 
 import dynamic from "next/dynamic";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const Maps = dynamic(() => import("@/components/features/maps/maps"), {
     ssr: false,
