@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { LeafletTrackingMarker } from "react-leaflet-tracking-marker";
 import { divIcon, LatLngTuple } from "leaflet";
 import ReactDomServer from "react-dom/server";
-import { Sailboat } from "lucide-react";
+import { Compass, Sailboat } from "lucide-react";
 import { ShipWithLatestLog } from "@/types";
 import { Polyline, Popup } from "react-leaflet";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default function ShipMarker({ data }: { data: ShipWithLatestLog }) {
     const { latest_log } = data;
@@ -26,6 +28,9 @@ export default function ShipMarker({ data }: { data: ShipWithLatestLog }) {
         prev,
     );
 
+    const bearing = calculateBearing(prev, [lat, lon]);
+    const fakePrev = getPointBehind([lat, lon], bearing, 50); // 300 meter ekor
+
     return (
         <>
             <LeafletTrackingMarker
@@ -34,21 +39,47 @@ export default function ShipMarker({ data }: { data: ShipWithLatestLog }) {
                 previousPosition={prev}
                 duration={1000}
             >
-                <Popup>
-                    <strong>{data.name}</strong> <br />
-                    Status: {data.latest_log?.flag ? "Peringatan" : "Normal"}
-                    <br />
-                    Kemiringan Depan: {Math.floor(
-                        data.latest_log?.pitch ?? 0,
-                    )}{" "}
-                    <br />
-                    Kemiringan Samping: {Math.floor(
-                        data.latest_log?.roll ?? 0,
-                    )}{" "}
-                    <br />
+                <Popup className="w-fit font-sans">
+                    <h3 className="text-xl font-bold">{data.name}</h3>
+                    <Badge
+                        className={
+                            data.latest_log?.flag
+                                ? "bg-yellow-100 text-yellow-700"
+                                : "bg-blue-100 text-blue-700"
+                        }
+                    >
+                        {data.latest_log?.flag ? "Peringatan" : "Normal"}
+                    </Badge>
+                    <div className="py-2 flex gap-2 items-stretch">
+                        <div className="w-32">
+                            <p className="font-bold text-2xl !my-1">
+                                {Math.floor(data.latest_log?.pitch ?? 0)} &#176;
+                            </p>
+                            <span className="text-sm">
+                                Kemiringan
+                                <br /> Depan/Belakang
+                            </span>
+                        </div>
+                        <div className="w-32">
+                            <p className="font-bold text-2xl !my-1">
+                                {Math.floor(data.latest_log?.roll ?? 0)} &#176;
+                            </p>
+                            <span className="text-sm">
+                                Kemiringan
+                                <br /> Samping
+                            </span>
+                        </div>
+                    </div>
+                    <Button className="bg-foreground w-full" size="sm">
+                        <Compass />
+                        Detail
+                    </Button>
                 </Popup>
             </LeafletTrackingMarker>
-            <Polyline positions={[prev, [lat, lon]]} />
+            <Polyline
+                positions={[fakePrev, [lat, lon]]}
+                pathOptions={{ color: "blue", dashArray: "5, 10" }}
+            />
         </>
     );
 }
@@ -72,4 +103,42 @@ function getShipIcon(flag: boolean) {
         iconSize: [32, 32],
         iconAnchor: [16, 16],
     });
+}
+
+function calculateBearing(from: LatLngTuple, to: LatLngTuple): number {
+    const [lat1, lon1] = from.map((d) => (d! * Math.PI) / 180);
+    const [lat2, lon2] = to.map((d) => (d! * Math.PI) / 180);
+
+    const y = Math.sin(lon2 - lon1) * Math.cos(lat2);
+    const x =
+        Math.cos(lat1) * Math.sin(lat2) -
+        Math.sin(lat1) * Math.cos(lat2) * Math.cos(lon2 - lon1);
+    const bearing = (Math.atan2(y, x) * 180) / Math.PI;
+
+    return (bearing + 360) % 360; // in degrees
+}
+
+function getPointBehind(
+    current: LatLngTuple,
+    bearing: number,
+    distanceMeters: number,
+): LatLngTuple {
+    const R = 6371000; // Earth radius in meters
+    const δ = distanceMeters / R; // angular distance
+    const θ = ((bearing + 180) % 360) * (Math.PI / 180); // reverse direction in radians
+
+    const [lat1, lon1] = current.map((d) => (d! * Math.PI) / 180);
+
+    const lat2 = Math.asin(
+        Math.sin(lat1) * Math.cos(δ) +
+            Math.cos(lat1) * Math.sin(δ) * Math.cos(θ),
+    );
+    const lon2 =
+        lon1 +
+        Math.atan2(
+            Math.sin(θ) * Math.sin(δ) * Math.cos(lat1),
+            Math.cos(δ) - Math.sin(lat1) * Math.sin(lat2),
+        );
+
+    return [(lat2 * 180) / Math.PI, (lon2 * 180) / Math.PI];
 }
