@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { LeafletTrackingMarker } from "react-leaflet-tracking-marker";
 import { divIcon, LatLngTuple } from "leaflet";
 import ReactDomServer from "react-dom/server";
-import { Compass, Sailboat } from "lucide-react";
+import { Sailboat } from "lucide-react";
 import { ShipWithLatestLog } from "@/types";
 import { Polyline, Popup } from "react-leaflet";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import NavigationDetails from "./navigation-details";
 
 export default function ShipMarker({ data }: { data: ShipWithLatestLog }) {
     const { latest_log } = data;
@@ -53,27 +53,24 @@ export default function ShipMarker({ data }: { data: ShipWithLatestLog }) {
                     <div className="py-2 flex gap-2 items-stretch">
                         <div className="w-32">
                             <p className="font-bold text-2xl !my-1">
-                                {Math.floor(data.latest_log?.pitch ?? 0)} &#176;
-                            </p>
-                            <span className="text-sm">
-                                Kemiringan
-                                <br /> Depan/Belakang
-                            </span>
-                        </div>
-                        <div className="w-32">
-                            <p className="font-bold text-2xl !my-1">
-                                {Math.floor(data.latest_log?.roll ?? 0)} &#176;
+                                {Math.floor(data.latest_log?.roll ?? 0)}&#176;
                             </p>
                             <span className="text-sm">
                                 Kemiringan
                                 <br /> Samping
                             </span>
                         </div>
+                        <div className="w-32">
+                            <p className="font-bold text-2xl !my-1">
+                                {Math.floor(data.latest_log?.pitch ?? 0)}&#176;
+                            </p>
+                            <span className="text-sm">
+                                Kemiringan
+                                <br /> Depan/Belakang
+                            </span>
+                        </div>
                     </div>
-                    <Button className="bg-foreground w-full" size="sm">
-                        <Compass />
-                        Detail
-                    </Button>
+                    <NavigationDetails shipId={data.code} name={data.name} />
                 </Popup>
             </LeafletTrackingMarker>
             <Polyline
