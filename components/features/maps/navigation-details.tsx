@@ -61,12 +61,15 @@ export default function NavigationDetails({
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-                <Button className="bg-foreground w-full" size="sm">
+                <Button
+                    className="bg-foreground w-full hover:cursor-pointer"
+                    size="sm"
+                >
                     <Compass />
                     Detail
                 </Button>
             </SheetTrigger>
-            <SheetContent className="z-[1000]">
+            <SheetContent className="z-[1000] w-full md:w-[400px]">
                 <SheetHeader>
                     <SheetTitle className="flex items-center gap-2">
                         <Compass className="w-4 h-4" />

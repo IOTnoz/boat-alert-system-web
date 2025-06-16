@@ -12,9 +12,9 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <header className="max-w-7xl mx-auto py-4 flex justify-between">
-            <h1>Boat Safe System</h1>
-            <NavigationMenu>
+        <header className="max-w-7xl mx-auto py-4 px-4 flex justify-between items-center">
+            <h1 className="font-bold text-sm md:text-xl">Boat Safe System</h1>
+            <NavigationMenu className="z-[999] hidden md:block">
                 <NavigationMenuList>
                     <NavigationMenuItem>
                         <NavigationMenuTrigger>Kami</NavigationMenuTrigger>
@@ -108,11 +108,15 @@ export default function Navbar() {
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-            <div className="flex gap-4">
-                <Button variant="outline">
+            <div className="flex md:gap-4">
+                <Button
+                    variant="outline"
+                    className="hover:cursor-pointer focus:bg-gray-100"
+                    onClick={() => console.log("HI donasi")}
+                >
                     <Heart /> Donasi
                 </Button>
-                <Link href="/login">
+                <Link href="/login" className="hidden md:block">
                     <Button>Login</Button>
                 </Link>
             </div>
