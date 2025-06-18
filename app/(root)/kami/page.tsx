@@ -12,6 +12,14 @@ export default function WeAre() {
                     className="rounded-lg"
                 />
             </div>
+            <section>
+                <h3 className="font-bold text-4xl pt-8 pb-4 mx-auto text-center">
+                    IOTNOZ 09
+                </h3>
+                <h4 className="text-center font-semibold text-2xl">
+                    Keep you informed, Keeping them safe.
+                </h4>
+            </section>
         </div>
     );
 }
