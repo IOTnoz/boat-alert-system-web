@@ -8,34 +8,27 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Separator } from "@/components/ui/separator";
-import {
-    Sheet,
-    SheetContent,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from "@/components/ui/sheet";
-import { Heart, Menu, ShipIcon } from "lucide-react";
+import { Heart, ShipIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import NavigationMobile from "./navigation-mobile";
 
-const base = {
+export const base = {
     title: "Boat Safe System",
     link: "/",
 };
 
-const navList = [
+export const navList = [
     {
         title: "Tentang Kami",
         list: [
             {
-                title: "IOTNOZ 09",
+                title: "Produk",
                 desc: "Hadir untuk membantu para pelaut dan orang yang sedang berlayar.",
                 link: "/iotnoz",
             },
             {
-                title: "Kami",
+                title: "IOTNOZ 09",
                 desc: "Lihat siapa yang berkolaborasi dalam pengembangan ini.",
                 link: "/kami",
             },
@@ -81,6 +74,15 @@ export default function Navbar() {
 
             <NavigationMenu className="z-[500] hidden md:block">
                 <NavigationMenuList>
+                    <NavigationMenuItem>
+                        <NavigationMenuLink
+                            asChild
+                            className={navigationMenuTriggerStyle()}
+                        >
+                            <Link href="/">Maps</Link>
+                        </NavigationMenuLink>
+                    </NavigationMenuItem>
+
                     {navList.map((nav, idx) => (
                         <NavigationMenuItem key={idx}>
                             <NavigationMenuTrigger>
@@ -157,64 +159,7 @@ export default function Navbar() {
                 <Link href="/login" className="hidden md:block">
                     <Button>Login</Button>
                 </Link>
-                <Sheet>
-                    <SheetTrigger asChild>
-                        <Button
-                            variant="outline"
-                            size="icon"
-                            className="lg:hidden"
-                        >
-                            <Menu />
-                        </Button>
-                    </SheetTrigger>
-                    <SheetContent className="z-[9999] p-4 w-full">
-                        <SheetHeader>
-                            <SheetTitle asChild>
-                                <Link
-                                    href={base.link}
-                                    className="flex gap-2 text-xl font-semibold"
-                                >
-                                    <Image
-                                        src="/logo.png"
-                                        alt="Logo IOTNOZ"
-                                        width={30}
-                                        height={30}
-                                        className="rounded-md"
-                                    />
-                                    {base.title}
-                                </Link>
-                            </SheetTitle>
-                        </SheetHeader>
-
-                        <ul className="space-y-2 p-4">
-                            {navList.map((nav, idx) => (
-                                <div key={idx} className="space-y-2">
-                                    <li className="mt-4 font-medium">
-                                        {nav.title}
-                                    </li>
-                                    <Separator />
-                                    {nav.list.map((list, i) => (
-                                        <li
-                                            key={`${idx}-${i}`}
-                                            className="font-medium text-sm ml-2"
-                                        >
-                                            <Link href={list.link}>
-                                                {list.title}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </div>
-                            ))}
-                        </ul>
-
-                        <div className="p-2 w-full">
-                            <Button variant="outline" className="w-full">
-                                <Heart />
-                                Donasi
-                            </Button>
-                        </div>
-                    </SheetContent>
-                </Sheet>
+                <NavigationMobile />
             </div>
         </header>
     );
