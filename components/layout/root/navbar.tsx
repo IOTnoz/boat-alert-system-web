@@ -17,6 +17,7 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet";
 import { Heart, Menu, ShipIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 const base = {
@@ -31,7 +32,7 @@ const navList = [
             {
                 title: "IOTNOZ 09",
                 desc: "Hadir untuk membantu para pelaut dan orang yang sedang berlayar.",
-                link: "/produk",
+                link: "/iotnoz",
             },
             {
                 title: "Kami",
@@ -64,8 +65,15 @@ const navList = [
 
 export default function Navbar() {
     return (
-        <header className="max-w-7xl mx-auto py-4 px-4 flex justify-between items-center">
-            <Link href={base.link}>
+        <header className="container mx-auto py-4 px-4 flex justify-between items-center">
+            <Link href={base.link} className="flex gap-2 items-center">
+                <Image
+                    src="/logo.png"
+                    alt="Logo IOTNOZ"
+                    width={30}
+                    height={30}
+                    className="rounded-md"
+                />
                 <h1 className="font-bold text-sm md:text-xl">
                     Boat Safe System
                 </h1>
@@ -164,8 +172,15 @@ export default function Navbar() {
                             <SheetTitle asChild>
                                 <Link
                                     href={base.link}
-                                    className="text-xl font-semibold"
+                                    className="flex gap-2 text-xl font-semibold"
                                 >
+                                    <Image
+                                        src="/logo.png"
+                                        alt="Logo IOTNOZ"
+                                        width={30}
+                                        height={30}
+                                        className="rounded-md"
+                                    />
                                     {base.title}
                                 </Link>
                             </SheetTitle>
