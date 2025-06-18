@@ -151,8 +151,12 @@ export default function Navbar() {
                 </Link>
                 <Sheet>
                     <SheetTrigger asChild>
-                        <Button variant="outline" size="icon">
-                            <Menu className="size-4" />
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="lg:hidden"
+                        >
+                            <Menu />
                         </Button>
                     </SheetTrigger>
                     <SheetContent className="z-[9999] p-4 w-full">
@@ -177,7 +181,7 @@ export default function Navbar() {
                                     {nav.list.map((list, i) => (
                                         <li
                                             key={`${idx}-${i}`}
-                                            className="font-medium text-sm"
+                                            className="font-medium text-sm ml-2"
                                         >
                                             <Link href={list.link}>
                                                 {list.title}
