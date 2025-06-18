@@ -13,10 +13,10 @@ export default function WeAre() {
                 />
             </div>
             <section>
-                <h3 className="font-bold text-4xl pt-8 pb-4 mx-auto text-center">
+                <h3 className="font-bold text-2xl lg:text-4xl pt-4 pb-2 lg:pt-8 lg:pb-4 mx-auto text-center">
                     IOTNOZ 09
                 </h3>
-                <h4 className="text-center font-semibold text-2xl">
+                <h4 className="text-center font-semibold lg:text-2xl">
                     Keep you informed, Keeping them safe.
                 </h4>
             </section>
