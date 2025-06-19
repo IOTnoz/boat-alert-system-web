@@ -8,10 +8,18 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Heart, ShipIcon } from "lucide-react";
+import { Heart, NotebookPen, ShipIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import NavigationMobile from "./navigation-mobile";
+import {
+    Dialog,
+    DialogClose,
+    DialogContent,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export const base = {
     title: "Boat Safe System",
@@ -149,13 +157,49 @@ export default function Navbar() {
             </NavigationMenu>
 
             <div className="flex gap-2 md:gap-4">
-                <Button
-                    variant="outline"
-                    className="hover:cursor-pointer focus:bg-gray-100"
-                    onClick={() => console.log("HI donasi")}
-                >
-                    <Heart /> Donasi
-                </Button>
+                <Dialog>
+                    <DialogTrigger>
+                        <Button
+                            variant="outline"
+                            className="hover:cursor-pointer focus:bg-gray-100"
+                            onClick={() => console.log("HI donasi")}
+                        >
+                            <Heart /> Donasi
+                        </Button>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogTitle>Donasi</DialogTitle>
+                        <div>
+                            <Alert>
+                                <NotebookPen />
+                                <AlertTitle>
+                                    Donasi ini akan dipergunakan pribadi oleh
+                                    tim kami.
+                                </AlertTitle>
+                                <AlertDescription>
+                                    Tujuan adanya fitur donasi ini untuk
+                                    menutupi pengeluaran kami dan diharapkan
+                                    bisa membantu pengembangan selanjutnya.
+                                </AlertDescription>
+                            </Alert>
+                            <div className="w-full aspect-square rounded-lg bg-gray-400 mt-4 overflow-clip">
+                                <Image
+                                    src="/qris.jpg"
+                                    alt="qris donasi iotnoz"
+                                    width={500}
+                                    height={500}
+                                    className="w-full h-full"
+                                />
+                            </div>
+                        </div>
+                        <DialogClose asChild>
+                            <Button variant="outline" className="w-full">
+                                Tutup
+                            </Button>
+                        </DialogClose>
+                    </DialogContent>
+                </Dialog>
+
                 {/* <Link href="/login" className="hidden md:block">
                     <Button>Login</Button>
                 </Link> */}
