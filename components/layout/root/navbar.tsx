@@ -50,7 +50,7 @@ export const navList = [
             {
                 title: "Software",
                 desc: "Teknologi yang digunakan untuk monitoring.",
-                link: "/sofware",
+                link: "/software",
             },
         ],
     },

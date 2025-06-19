@@ -15,7 +15,7 @@ export default function Mitra() {
                 />
                 <div className="absolute top-0 left-0 w-full h-full flex justify-center items-end">
                     <div className="mb-2 lg:mb-8 bg-white/40 backdrop-blur-lg p-1 lg:p-2">
-                        <h5 className="font-bold text-sm lg:text-4xl text-blue-900">
+                        <h5 className="font-bold text-sm lg:text-4xl text-white">
                             Yayasan Konservasi Laut (YKL)
                         </h5>
                     </div>
