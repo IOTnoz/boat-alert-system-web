@@ -24,15 +24,15 @@ const features = [
 
 export default function Software() {
     return (
-        <div className="container mt-8 mx-auto min-h-[70vh] flex flex-col items-center justify-center">
-            <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl md:text-center md:mx-auto">
+        <div className="container mt-8 mx-auto min-h-[70vh] flex flex-col items-center justify-center px-4 lg:px-0">
+            <h2 className="text-2xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl md:text-center md:mx-auto">
                 Software dan Library
             </h2>
             <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {features.map((feature) => (
                     <Link key={feature.product} href="#">
                         <div className="flex gap-6 hover:ring rounded-lg p-2 -mx-2 sm:mx-0 max-w-lg">
-                            <div className="h-24 aspect-square shrink-0 rounded-lg bg-muted items-center flex justify-center">
+                            <div className="h-24 aspect-square shrink-0 p-2 lg:p-0 rounded-lg bg-muted items-center flex justify-center">
                                 <Image
                                     src={feature.img}
                                     alt={feature.product}

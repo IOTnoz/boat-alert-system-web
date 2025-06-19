@@ -39,10 +39,10 @@ const listComponent = [
 export default function Hardware() {
     return (
         <div className="container mx-auto">
-            <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl md:text-center md:mx-auto mt-2 lg:mt-8">
+            <h2 className="text-4xl md:text-5xl md:leading-[3.5rem] font-bold tracking-tight max-w-xl text-center md:mx-auto mt-2 lg:mt-8">
                 Sistem Alat
             </h2>
-            <div className="mt-8 md:mt-16 w-full mx-auto space-y-20">
+            <div className="mt-8 md:mt-16 w-full mx-auto space-y-20 px-4 lg:px-0">
                 <div className="flex flex-col md:flex-row items-center gap-x-20 gap-y-6 md:odd:flex-row-reverse">
                     <div className="w-full aspect-[6/4] bg-muted rounded-xl border border-border/50 basis-1/2 flex justify-center items-center">
                         <Image
@@ -53,9 +53,6 @@ export default function Hardware() {
                         />
                     </div>
                     <div className="basis-1/2 shrink-0">
-                        {/* <span className="uppercase font-semibold text-sm text-muted-foreground">
-                            Alat Darat
-                        </span> */}
                         <h4 className="my-3 text-3xl font-semibold tracking-tight">
                             Sistem Darat
                         </h4>
