@@ -67,7 +67,7 @@ export default function Hardware() {
                             asChild
                             className="mt-6 rounded-full min-w-40 text-[15px]"
                         >
-                            <Link href="/">
+                            <Link href="https://drive.google.com/file/d/1FarJc6g7RamV_NwShMK-apekhTIeZ5qf/view?usp=sharing">
                                 Lihat Detail <ArrowRight />
                             </Link>
                         </Button>
@@ -100,7 +100,7 @@ export default function Hardware() {
                             asChild
                             className="mt-6 rounded-full min-w-40 text-[15px]"
                         >
-                            <Link href="/">
+                            <Link href="https://drive.google.com/file/d/1FarJc6g7RamV_NwShMK-apekhTIeZ5qf/view?usp=sharing">
                                 Lihat Detail <ArrowRight />
                             </Link>
                         </Button>
