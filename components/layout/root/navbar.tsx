@@ -25,12 +25,12 @@ export const navList = [
             {
                 title: "Produk",
                 desc: "Hadir untuk membantu para pelaut dan orang yang sedang berlayar.",
-                link: "/iotnoz",
+                link: "/produk",
             },
             {
                 title: "IOTNOZ 09",
                 desc: "Lihat siapa yang berkolaborasi dalam pengembangan ini.",
-                link: "/kami",
+                link: "/iotnoz",
             },
             {
                 title: "Mitra",
@@ -156,9 +156,9 @@ export default function Navbar() {
                 >
                     <Heart /> Donasi
                 </Button>
-                <Link href="/login" className="hidden md:block">
+                {/* <Link href="/login" className="hidden md:block">
                     <Button>Login</Button>
-                </Link>
+                </Link> */}
                 <NavigationMobile />
             </div>
         </header>
