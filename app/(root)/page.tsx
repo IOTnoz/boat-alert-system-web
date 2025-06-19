@@ -1,7 +1,6 @@
 "use client";
 
 import BigTitle from "@/components/layout/root/big-title";
-import TeamCards from "@/components/layout/root/team-card";
 
 import dynamic from "next/dynamic";
 
@@ -18,7 +17,6 @@ export default function Home() {
                 </div>
             </div>
             <BigTitle />
-            <TeamCards />
         </>
     );
 }
