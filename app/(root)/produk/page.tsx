@@ -7,7 +7,7 @@ export default function Iotnoz() {
             <div className="flex flex-col lg:flex-row w-full lg:h-[80vh] p-4 lg:p-16 bg-gradient-to-br from-pink-700/30 to-blue-700/25 rounded-lg">
                 <div className="lg:h-full flex flex-col justify-end w-full lg:w-1/2 py-8 lg:pt-0">
                     <Image
-                        src="/alat-darat.png"
+                        src="/alat/alat-darat.png"
                         alt="Alat Darat IOTNOZ"
                         width={300}
                         height={300}
@@ -31,7 +31,7 @@ export default function Iotnoz() {
                         <h6 className="text-lg font-bold text-blue-900 mb-2 tracking-wide">
                             Latar Belakang
                         </h6>
-                        <p className="text-lg text-justify text-blue-700">
+                        <p className="text-lg text-justify text-slate-700">
                             Yayasan Konservasi Laut (YKL) Indonesia berkomitmen
                             terhadap pelestarian ekosistem pesisir dan
                             pemberdayaan masyarakat pesisir. Sebagai bentuk
@@ -51,7 +51,7 @@ export default function Iotnoz() {
                         <h6 className="text-lg font-bold text-blue-900 mb-2 tracking-wide">
                             Produk Akhir
                         </h6>
-                        <p className="text-lg text-justify text-blue-700">
+                        <p className="text-lg text-justify text-slate-700">
                             Sistem perahu dapat melakukan pengukuran kemiringan
                             dan lokasi dari perahu serta dapat mengirimkan data
                             melalui module LoRa. Namun, salah satu tantangan
