@@ -166,7 +166,7 @@ export default function Navbar() {
                             <Heart /> Donasi
                         </Button>
                     </DialogTrigger>
-                    <DialogContent>
+                    <DialogContent className="z-[999]">
                         <DialogTitle>Donasi</DialogTitle>
                         <div>
                             <Alert>
