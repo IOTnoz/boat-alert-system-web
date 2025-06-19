@@ -100,7 +100,7 @@ export default function WeAre() {
             <Button
                 onClick={toggleMusic}
                 size="icon"
-                className="absolute lg:hidden bottom-4 right-4 mx-auto mb-2 lg:mb-4 rounded-full"
+                className="fixed lg:hidden bottom-4 right-4 mx-auto mb-2 lg:mb-4 rounded-full"
             >
                 {isPlaying ? (
                     <>
