@@ -158,11 +158,10 @@ export default function Navbar() {
 
             <div className="flex gap-2 md:gap-4">
                 <Dialog>
-                    <DialogTrigger>
+                    <DialogTrigger asChild>
                         <Button
                             variant="outline"
                             className="hover:cursor-pointer focus:bg-gray-100"
-                            onClick={() => console.log("HI donasi")}
                         >
                             <Heart /> Donasi
                         </Button>
