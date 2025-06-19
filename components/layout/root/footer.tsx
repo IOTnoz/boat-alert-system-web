@@ -58,14 +58,19 @@ export default function Footer() {
                     {/* Social */}
                     <div className="flex flex-col space-y-4 md:items-end">
                         <div className="flex space-x-4">
-                            <Button
-                                variant="ghost"
-                                size="icon"
-                                className="h-8 w-8 rounded-full"
+                            <a
+                                href="https://github.com/IOTnoz"
+                                target="_blank"
+                                rel="noopener"
                             >
-                                <Github className="h-4 w-4" />
-                                Github
-                            </Button>
+                                <Button
+                                    variant="ghost"
+                                    className="rounded-full"
+                                >
+                                    <Github className="h-4 w-4" />
+                                    Github
+                                </Button>
+                            </a>
                         </div>
                     </div>
                 </div>
