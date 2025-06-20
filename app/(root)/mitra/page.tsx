@@ -29,11 +29,14 @@ export default function Mitra() {
                     Pertama-tama, kami mengucapkan terima kasih kepada Ibu Ir.
                     Anugrayani Bustamin, S.T., M.T. selaku pembimbing proyek
                     ini. Merupakan suatu kehormatan bagi tim kami dapat
-                    mewujudkan ide yang telah beliau berikan. Kami juga
-                    menyampaikan apresiasi yang sebesar-besarnya atas segala
-                    bantuan materiil, dukungan dalam menghadapi berbagai
-                    tantangan, serta peran beliau sebagai penghubung antara tim
-                    kami dan mitra.
+                    mewujudkan bagian dari project kerjasama Universitas
+                    Hasanuddin, Universitas Negeri Makassar dan Swinburne
+                    University of Technology Australia dengan judul penelitian
+                    Digital Commons: Empowering Coastal Communities through
+                    Collective Digital Infrastructure. Kami juga menyampaikan
+                    apresiasi yang sebesar-besarnya atas segala bantuan materil,
+                    dukungan dalam menghadapi berbagai tantangan, serta peran
+                    beliau sebagai penghubung antara tim kami dan mitra.
                 </p>
             </section>
 
